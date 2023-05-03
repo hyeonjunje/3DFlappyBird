@@ -18,6 +18,6 @@ Unity 로 만든 3D FlappyBird 입니다.
 
 ## 협업 방식
 
-> 각 팀원은 팀장의 Repo를 Fork해서 작업한 뒤 팀장 Repo의 develop branch에 PR(Pull requests)
-> conflict 발생 시 해결한 뒤 PR 
-> 팀장은 PR을 검토하고 Merge
+> 각 팀원은 팀장의 Repo를 Fork해서 작업한 뒤 팀장 Repo의 develop branch에 PR(Pull requests)  <br>
+> conflict 발생 시 해결한 뒤 PR <br>
+> 팀장은 PR을 검토하고 Merge <br>
