@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public GameObject warningUI;
     public InputField inputField;
     string nickName;
+
+    public string NickName => nickName;
     
 
     public int index = 0;

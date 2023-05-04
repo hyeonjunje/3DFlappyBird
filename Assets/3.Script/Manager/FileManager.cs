@@ -3,40 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-[System.Serializable]
-public class ScoreData
-{
-    public string playerName;
-    public int playerScore;
-
-    public ScoreData(string playerName, int playerScore)
-    {
-        this.playerName = playerName;
-        this.playerScore = playerScore;
-    }
-}
-
-[System.Serializable]
-public class Data
-{
-    public List<ScoreData> scoreData = new List<ScoreData>();
-
-    public Data()
-    {
-        scoreData = new List<ScoreData>();
-    }
-}
-
 public class FileManager
 {
-    public Data saveData = new Data();
+    private GameData gameData = new GameData();
+    public GameData GameData => gameData;
 
+
+    /// <summary>
+    /// 데이터 기록
+    /// </summary>
+    /// <param name="scoreData">기록할 데이터</param>
+    public void RecordData(ScoreData scoreData)
+    {
+        gameData.AddScoreData(scoreData);
+        if(gameData.maxScore < scoreData.playerScore)
+        {
+            gameData.maxScore = scoreData.playerScore;
+        }
+    }
 
     public void SaveGame()
     {
         string filePath = Application.persistentDataPath + "/save.json";
         StreamWriter saveFile = new StreamWriter(filePath);
-        saveFile.Write(JsonUtility.ToJson(saveData, true));
+        saveFile.Write(JsonUtility.ToJson(gameData, true));
 
         saveFile.Close();
     }
@@ -54,7 +44,7 @@ public class FileManager
 
         StreamReader saveFile = new StreamReader(filePath);
 
-        JsonUtility.FromJsonOverwrite(saveFile.ReadToEnd(), saveData);
+        JsonUtility.FromJsonOverwrite(saveFile.ReadToEnd(), gameData);
 
         saveFile.Close();
     }
