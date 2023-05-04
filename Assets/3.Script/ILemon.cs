@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class ILemon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public enum ItemType { Lemon,DragonFruit}
+    public ItemType type;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pipe"))
+        if (other.CompareTag("Pipe") && type.Equals(ItemType.Lemon))
         {
-            MeshCollider box = other.GetComponent<MeshCollider>();
+            ObjectChange box = other.GetComponent<ObjectChange>();
+        }
 
-       
+        if (other.CompareTag("Player") && type.Equals(ItemType.DragonFruit))
+        {
+
+            
+            gameObject.SetActive(false);
         }
     }
 }
