@@ -7,25 +7,40 @@ public class RabbitController : Singleton<RabbitController>
 {
     [SerializeField] float jumpForce;
     Rigidbody rigid;
-    Animator ani;
-    Vector3 defaultScale;
+
+    public Animator ani;
+    public Vector3 defaultScale;
+    Vector3 view;
     public SkinnedMeshRenderer rend;
     public Material[] mat;
-    bool isDead;
-    bool isBig;
+
+    public bool isDead;
+    public bool isBig;
+
 
     private void Awake()
     {
+        isDead = false;
+        isBig = false;
         defaultScale = gameObject.transform.localScale;
         rend = GetComponentInChildren<SkinnedMeshRenderer>();
         TryGetComponent(out rigid);
         TryGetComponent(out ani);
         
+        
     }
 
-    private void FixedUpdate()
+
+    private void Update()
     {
-        
+      
+        view = Camera.main.WorldToViewportPoint(transform.position);
+        //화면 밖으로 나가면 죽음?
+        if(view.y>1||view.y<0&&!isBig)
+        {
+            Die();
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             Jump();
@@ -52,57 +67,75 @@ public class RabbitController : Singleton<RabbitController>
 
     }
 
+    void Die()
+    {
+        isDead = true;
+        ani.SetTrigger("Die");
+        Debug.Log("죽음");
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.transform.CompareTag("Pipe")&&!isDead&&!isBig)
         {
             //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
-            isDead = true;
-            ani.SetTrigger("Die");
+            Die();
         }
 
         if (collision.transform.CompareTag("Pipe") && isBig)
         {
             //아이템 먹으면 파이프 뿌시기
-            Destroy(collision.collider.gameObject);
+            collision.collider.gameObject.SetActive(false);
 
         }
+
 
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Item")&&!isDead)
+        if (other.CompareTag("Item")&&!isDead)
         {
-            isBig = true;
-            Destroy(other.gameObject);
-            StartCoroutine(sizeUpItemCo());
+            IItem item = other.GetComponent<IItem>();
+            if (item != null)
+            {
+                item.Use();
+                Destroy(other.gameObject);
+            }
         }
     }
 
-    IEnumerator sizeUpItemCo()
+    public void Carrot()
+    {
+        StartCoroutine(sizeUpItemCo());
+    }
+
+    public IEnumerator sizeUpItemCo()
     {
         //커지고 파이프 뿌시고 일정시간 이후에 돌아오기
+        isBig = true;
         int count = 0;
-        while (count < 3)
+        while (count < 7)
         {
-            transform.localScale *= 1.3f;
+            RabbitController.Instance.transform.localScale *= 1.3f;
             yield return new WaitForSeconds(0.065f);
             count++;
         }
         ani.SetBool("Dance", true);
         yield return new WaitForSeconds(5f);
 
-        while(transform.localScale.x>=defaultScale.x)
+        while (transform.localScale.x >= defaultScale.x)
         {
-            transform.localScale -= Vector3.one* 0.2f;
+            transform.localScale -= Vector3.one * 0.3f;
             yield return new WaitForSeconds(0.065f);
         }
         transform.localScale = defaultScale;
         ani.SetBool("Dance", false);
         isBig = false;
     }
+
 
 
 

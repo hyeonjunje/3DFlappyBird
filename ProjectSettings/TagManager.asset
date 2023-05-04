@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Item
   - Pipe
+  - Ground
+  - Lemon
+  - Carrot
   layers:
   - Default
   - TransparentFX
