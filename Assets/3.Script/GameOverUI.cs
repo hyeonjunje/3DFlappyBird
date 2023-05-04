@@ -16,9 +16,10 @@ public class GameOverUI : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
+        Debug.Log(RabbitController.Instance.nickName);
+
         // 데이터 가져오기
-        UIManager ui = FindObjectOfType<UIManager>();
-        string nickName = ui.NickName;
+        string nickName = RabbitController.Instance.nickName;
         int score = Random.Range(0, 31);
         ScoreData scoreData = new ScoreData(nickName, score);
 

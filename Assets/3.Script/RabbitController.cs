@@ -18,6 +18,11 @@ public class RabbitController : Singleton<RabbitController>
     public bool isBig;
     public Item item;
 
+    public delegate void OnDie();
+    public event OnDie onDie;
+
+    public string nickName;
+
     private void Awake()
     {
         isDead = false;
@@ -36,7 +41,7 @@ public class RabbitController : Singleton<RabbitController>
       
         view = Camera.main.WorldToViewportPoint(transform.position);
         //화면 밖으로 나가면 죽음?
-        if(view.y>1||view.y<0&&!isBig)
+        if(view.y>1||view.y<0&&!isBig && GameManager.Instance.Scene.currentScene == EScene.InGame)
         {
             Die();
         }
@@ -58,7 +63,7 @@ public class RabbitController : Singleton<RabbitController>
 
     private void Jump()
     {
-        if (!EventSystem.current.IsPointerOverGameObject()&&!isDead)
+        if (!EventSystem.current.IsPointerOverGameObject()&&!isDead && GameManager.Instance.Scene.currentScene == EScene.InGame)
         {
             rigid.velocity = Vector3.zero;
             rigid.AddForce(Vector3.up*jumpForce);
@@ -69,31 +74,38 @@ public class RabbitController : Singleton<RabbitController>
 
     private void Die()
     {
+        if (isDead)
+            return;
+
         isDead = true;
         ani.SetTrigger("Die");
         Debug.Log("죽음");
+
+        // 죽는 이벤트 실행
+        onDie?.Invoke();
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.CompareTag("Pipe")&&!isDead&&!isBig)
+        if(collision.transform.CompareTag("Pipe"))
         {
-            //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
-            Die();
-        }
-
-        if (collision.transform.CompareTag("Pipe") && isBig)
-        {
-            //아이템 먹으면 파이프 뿌시기
-            collision.collider.gameObject.SetActive(false);
-
+            if (isBig)
+            {
+                //아이템 먹으면 파이프 뿌시기
+                collision.collider.gameObject.SetActive(false);
+            }
+            else
+            {
+                //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
+                Die();
+            }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item")&&!isDead)
+        if (other.CompareTag("Item") && !isDead)
         {
             IItem item = other.GetComponent<IItem>();
             if (item != null)

@@ -10,10 +10,6 @@ public class UIManager : MonoBehaviour
     public GameObject nickNameUI;
     public GameObject warningUI;
     public InputField inputField;
-    string nickName;
-
-    public string NickName => nickName;
-    
 
     public int index = 0;
 
@@ -64,9 +60,10 @@ public class UIManager : MonoBehaviour
             return;
         }
         warningUI.SetActive(false);
-        nickName = inputField.text;
-        Debug.Log(nickName);
+        RabbitController.Instance.nickName = inputField.text;
+        Debug.Log(RabbitController.Instance.nickName);
         //¾À³Ñ±â±â
+        GameManager.Instance.Scene.LoadScene(EScene.InGame);
     }
 
 
