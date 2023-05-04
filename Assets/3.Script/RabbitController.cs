@@ -5,18 +5,18 @@ using UnityEngine.EventSystems;
 
 public class RabbitController : Singleton<RabbitController>
 {
-    [SerializeField] float jumpForce;
-    Rigidbody rigid;
+    [SerializeField] private float jumpForce;
+    private Rigidbody rigid;
 
     public Animator ani;
     public Vector3 defaultScale;
-    Vector3 view;
+    private Vector3 view;
     public SkinnedMeshRenderer rend;
     public Material[] mat;
 
     public bool isDead;
     public bool isBig;
-
+    public Item item;
 
     private void Awake()
     {
@@ -56,7 +56,7 @@ public class RabbitController : Singleton<RabbitController>
 
     }
 
-    void Jump()
+    private void Jump()
     {
         if (!EventSystem.current.IsPointerOverGameObject()&&!isDead)
         {
@@ -67,7 +67,7 @@ public class RabbitController : Singleton<RabbitController>
 
     }
 
-    void Die()
+    private void Die()
     {
         isDead = true;
         ani.SetTrigger("Die");
@@ -107,9 +107,18 @@ public class RabbitController : Singleton<RabbitController>
         }
     }
 
-    public void Carrot()
+    public void UseItem(EItem item)
     {
-        StartCoroutine(sizeUpItemCo());
+        switch(item)
+        {
+            case EItem.Carrot:
+                StartCoroutine(sizeUpItemCo());
+                break;
+            case EItem.Lemon:
+                break;
+
+        }
+
     }
 
     public IEnumerator sizeUpItemCo()

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Carrot : Item, IItem
 {
-    RabbitController rabbit;
+    private RabbitController rabbit;
+   
 
     private void Awake()
     {
@@ -13,7 +14,7 @@ public class Carrot : Item, IItem
 
     public void Use()
     {
-        rabbit.Carrot();
+        rabbit.UseItem(item);
         //Ä¿Áö±â
     }
 
