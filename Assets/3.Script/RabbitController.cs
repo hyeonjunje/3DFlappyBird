@@ -22,12 +22,26 @@ public class RabbitController : Singleton<RabbitController>
     {
         if(Input.GetMouseButtonDown(0))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            Jump();
+        }
+
+        if(Input.touchCount>0)
+        {
+            if(Input.GetTouch(0).phase==TouchPhase.Began)
             {
-                rigid.AddForce(0, jumpForce, 0);
-                ani.SetTrigger("Jump");
+                Jump();
             }
         }
         
+    }
+
+    void Jump()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            rigid.AddForce(0, jumpForce, 0);
+            ani.SetTrigger("Jump");
+        }
+
     }
 }
