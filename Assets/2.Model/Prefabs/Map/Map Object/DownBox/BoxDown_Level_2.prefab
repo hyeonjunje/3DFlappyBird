@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852061948530918568}
-  - component: {fileID: -1031504269314612458}
   m_Layer: 0
   m_Name: BoxDown_Level_2
   m_TagString: Pipe
@@ -33,19 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &-1031504269314612458
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 852061948530918569}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7957579, y: 1.5106053, z: 1}
-  m_Center: {x: 0.014588773, y: 0.79508543, z: 0}
 --- !u!1001 &852061947779970276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +42,10 @@ PrefabInstance:
     - target: {fileID: 197433645290991432, guid: 69fc3c50ef458b442b6e161f8acfd5a8, type: 3}
       propertyPath: m_Name
       value: Crate 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 197433645290991432, guid: 69fc3c50ef458b442b6e161f8acfd5a8, type: 3}
+      propertyPath: m_TagString
+      value: Pipe
       objectReference: {fileID: 0}
     - target: {fileID: 1970652770367857483, guid: 69fc3c50ef458b442b6e161f8acfd5a8, type: 3}
       propertyPath: m_RootOrder
@@ -118,6 +108,10 @@ PrefabInstance:
     - target: {fileID: 2568563042229404069, guid: e33ade9fa1348114f8d321f3d630d9fe, type: 3}
       propertyPath: m_Name
       value: Crate 1 broken
+      objectReference: {fileID: 0}
+    - target: {fileID: 2568563042229404069, guid: e33ade9fa1348114f8d321f3d630d9fe, type: 3}
+      propertyPath: m_TagString
+      value: Pipe
       objectReference: {fileID: 0}
     - target: {fileID: 3593274269371080746, guid: e33ade9fa1348114f8d321f3d630d9fe, type: 3}
       propertyPath: m_RootOrder

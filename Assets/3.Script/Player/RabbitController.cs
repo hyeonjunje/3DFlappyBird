@@ -89,9 +89,6 @@ public class RabbitController : Singleton<RabbitController>
             collision.collider.gameObject.SetActive(false);
 
         }
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
