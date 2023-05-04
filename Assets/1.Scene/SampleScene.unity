@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 266475467}
   - component: {fileID: 266475466}
   m_Layer: 0
-  m_Name: Object Level 03 (1)
+  m_Name: Object Level 04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,7 +404,6 @@ MonoBehaviour:
   objectMoveSpeed: 1
   valueBoxCount: 10
   objectVectorEnd: {x: -60, y: 0, z: 0}
-  objectVectorStart: {x: 60, y: 0, z: 0}
   objectPoolVector: {fileID: 937479478}
   objectUpBoxArray: []
   objectUpBoxPrefab:
@@ -437,7 +436,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266475465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 90, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -452,8 +451,8 @@ Transform:
   - {fileID: 1878698777}
   - {fileID: 716863478}
   - {fileID: 937479478}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 751812676}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &307808951
 GameObject:
@@ -665,6 +664,55 @@ Transform:
   m_Father: {fileID: 891515792}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!1 &751812674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 751812676}
+  - component: {fileID: 751812675}
+  m_Layer: 0
+  m_Name: BoxFile Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &751812675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751812674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4418ac3f3929cf24283a03e853b9a2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectBoxFiles: []
+  objectVectorStart: {x: 60, y: 0, z: 0}
+--- !u!4 &751812676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751812674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 891515792}
+  - {fileID: 1567525768}
+  - {fileID: 1960977413}
+  - {fileID: 266475467}
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820683592
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,7 +767,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891515791}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -734,8 +782,8 @@ Transform:
   - {fileID: 1646688118}
   - {fileID: 1108488251}
   - {fileID: 307808952}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 751812676}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &891515793
 MonoBehaviour:
@@ -752,7 +800,6 @@ MonoBehaviour:
   objectMoveSpeed: 1
   valueBoxCount: 10
   objectVectorEnd: {x: -60, y: 0, z: 0}
-  objectVectorStart: {x: 60, y: 0, z: 0}
   objectPoolVector: {fileID: 307808952}
   objectUpBoxArray: []
   objectUpBoxPrefab:
@@ -1407,7 +1454,6 @@ MonoBehaviour:
   objectMoveSpeed: 1
   valueBoxCount: 10
   objectVectorEnd: {x: -60, y: 0, z: 0}
-  objectVectorStart: {x: 60, y: 0, z: 0}
   objectPoolVector: {fileID: 1116484323}
   objectUpBoxArray: []
   objectUpBoxPrefab:
@@ -1440,7 +1486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1567525766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 30, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1455,8 +1501,8 @@ Transform:
   - {fileID: 1624527513}
   - {fileID: 1898512457}
   - {fileID: 1116484323}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 751812676}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602514264
 GameObject:
@@ -1973,7 +2019,6 @@ MonoBehaviour:
   objectMoveSpeed: 1
   valueBoxCount: 10
   objectVectorEnd: {x: -60, y: 0, z: 0}
-  objectVectorStart: {x: 60, y: 0, z: 0}
   objectPoolVector: {fileID: 820683593}
   objectUpBoxArray: []
   objectUpBoxPrefab:
@@ -2006,7 +2051,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960977411}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 60, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2021,8 +2066,8 @@ Transform:
   - {fileID: 1541879941}
   - {fileID: 1279113119}
   - {fileID: 820683593}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 751812676}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051024073
 GameObject:
