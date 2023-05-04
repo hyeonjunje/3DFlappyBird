@@ -13,9 +13,7 @@ public class Object_Movement: MonoBehaviour
     [Header("Vector Info")]
 
     [SerializeField] private Vector3 objectVectorEnd;
-    [SerializeField] private Vector3 objectVectorStart;
     [SerializeField] private Transform objectPoolVector;
-
 
     [Header("Instance Info")]
 
@@ -27,11 +25,10 @@ public class Object_Movement: MonoBehaviour
     [SerializeField] private GameObject[] objectDownBoxPrefab;
     [SerializeField] private Transform[] objectDownBoxPosArray;
 
-
-    private int valueCountPlus;
     private int valueRandNum;
     private int valueBoxPrefab;
 
+    private Object_Scrplling scrolling;
 
     /*
         1. 각 레벨의 기둥들을 3개씩 Instance한다.
@@ -42,6 +39,7 @@ public class Object_Movement: MonoBehaviour
 
     private void Awake()
     {
+        scrolling = GetComponentInParent<Object_Scrplling>();
         //Box Array = 레벨 종류 x 종류 당 개수 
         objectUpBoxArray = new GameObject[valueBoxCount];
         objectDownBoxArray = new GameObject[valueBoxCount];
@@ -98,17 +96,25 @@ public class Object_Movement: MonoBehaviour
                 continue;
             }
         }
-
-
     }
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.Translate(Vector3.left * objectMoveSpeed * Time.deltaTime);
 
-        if(transform.position.x <= objectVectorEnd.x)
+        if (transform.position.x <= objectVectorEnd.x)
         {
-            transform.position = objectVectorStart;
+            ResetPooling();
+            scrolling.ResetBoxFilePositon(gameObject);
+        }
+    }
+
+    private void ResetPooling()
+    {
+        for (int i = 0; i < objectUpBoxArray.Length; i++)
+        {
+            objectUpBoxArray[i].SetActive(false);
+            objectDownBoxArray[i].SetActive(false);
         }
     }
 }
