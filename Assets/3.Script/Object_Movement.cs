@@ -55,22 +55,39 @@ public class Object_Movement: MonoBehaviour
 
             objectUpBoxArray[i].SetActive(false);
             objectDownBoxArray[i].SetActive(false);
-            //=========================================================== 상단 바 Instance
+            //=====================================================  각 프리팹 종류에 따라 설정된 카운트에 분배하여 개수 소환
             valueBoxPrefab++;
 
             if(valueBoxPrefab >= objectUpBoxPrefab.Length)
             {
                 valueBoxPrefab = 0;
             }
-
         }
-
-
-       
-     
     }
     private void OnEnable()
     {
+
+        for (int i = 0; i < objectDownBoxPosArray.Length; i++)
+        {
+            valueRandNum = Random.Range(0, objectUpBoxArray.Length);
+
+            if (!objectUpBoxArray[valueRandNum].activeSelf && !objectDownBoxArray[valueRandNum].activeSelf)
+            {
+                objectUpBoxArray[valueRandNum].SetActive(true);
+                objectDownBoxArray[valueRandNum].SetActive(true);
+
+                objectUpBoxArray[valueRandNum].transform.position = objectUpBoxPosArray[i].position;
+
+                objectDownBoxArray[valueRandNum].transform.position = objectDownBoxPosArray[i].position;
+            }
+            else
+            {
+                i--;
+                continue;
+            }
+
+
+        }
     }
     // Update is called once per frame
     void Update()

@@ -547,7 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectMoveSpeed: 1
-  valueBoxCount: 20
+  valueBoxCount: 15
   objectVectorEnd: {x: 0, y: 0, z: 0}
   objectVectorStart: {x: 0, y: 0, z: 0}
   objectPoolVector: {fileID: 307808952}
