@@ -66,32 +66,49 @@ public class Object_Movement: MonoBehaviour
     }
     private void OnEnable()
     {
-
-        for (int i = 0; i < objectDownBoxPosArray.Length; i++)
+        for (int i = 0; i < objectUpBoxPosArray.Length; i++)
         {
             valueRandNum = Random.Range(0, objectUpBoxArray.Length);
 
-            if (!objectUpBoxArray[valueRandNum].activeSelf && !objectDownBoxArray[valueRandNum].activeSelf)
+            if (!objectUpBoxArray[valueRandNum].activeSelf)
             {
                 objectUpBoxArray[valueRandNum].SetActive(true);
-                objectDownBoxArray[valueRandNum].SetActive(true);
-
                 objectUpBoxArray[valueRandNum].transform.position = objectUpBoxPosArray[i].position;
-
-                objectDownBoxArray[valueRandNum].transform.position = objectDownBoxPosArray[i].position;
             }
             else
             {
                 i--;
                 continue;
             }
-
-
         }
+
+        for (int i = 0; i < objectDownBoxPosArray.Length; i++)
+        {
+            valueRandNum = Random.Range(0, objectDownBoxArray.Length);
+
+            if (!objectDownBoxArray[valueRandNum].activeSelf)
+            {
+                objectDownBoxArray[valueRandNum].SetActive(true);
+                objectDownBoxArray[valueRandNum].transform.position = objectDownBoxPosArray[i].position;
+            }
+
+            else
+            {
+                i--;
+                continue;
+            }
+        }
+
+
     }
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.left * objectMoveSpeed * Time.deltaTime);
+
+        if(transform.position.x <= objectVectorEnd.x)
+        {
+            transform.position = objectVectorStart;
+        }
     }
 }
