@@ -9,7 +9,7 @@ public class Carrot : Item, IItem
 
     private void Awake()
     {
-        rabbit = RabbitController.Instance.GetComponent<RabbitController>();
+        rabbit = GetComponent<RabbitController>();
     }
 
     public void Use()

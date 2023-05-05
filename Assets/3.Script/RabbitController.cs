@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RabbitController : Singleton<RabbitController>
+public class RabbitController : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
     private Rigidbody rigid;
@@ -108,7 +108,7 @@ public class RabbitController : Singleton<RabbitController>
     {
         if (other.CompareTag("Item") && !isDead)
         {
-            IItem item = other.GetComponent<IItem>();
+/*            IItem item = other.GetComponent<IItem>();
             EItem eItem = other.GetComponent<EItem>();
 
             if (item != null)
@@ -119,7 +119,7 @@ public class RabbitController : Singleton<RabbitController>
                 }
                 item.Use();
                 other.gameObject.SetActive(false);
-            }
+            }*/
         }
     }
 
@@ -153,7 +153,7 @@ public class RabbitController : Singleton<RabbitController>
         int count = 0;
         while (count < 7)
         {
-            RabbitController.Instance.transform.localScale *= 1.3f;
+            transform.localScale *= 1.3f;
             yield return new WaitForSeconds(0.065f);
             count++;
         }

@@ -14,7 +14,7 @@ public class ILemon : MonoBehaviour,IItem
     private RabbitController rabbit;
     private void Awake()
     {
-        rabbit = RabbitController.Instance.GetComponent<RabbitController>();
+        rabbit = GetComponent<RabbitController>();
     }
 
     public void Use()
