@@ -4,12 +4,16 @@ using UnityEngine;
 
 public enum EBGM
 {
-
+    Background
 }
 
 public enum ESE
 {
-
+    button,
+    jump,  // flap?,  jump2
+    item,
+    reward,
+    failed
 }
 
 public class SoundManager
@@ -43,11 +47,25 @@ public class SoundManager
 
         _bgmDic = new Dictionary<EBGM, AudioClip>();
         _seDic = new Dictionary<ESE, AudioClip>();
+
+        _bgmDic[EBGM.Background] = Resources.Load<AudioClip>("Audio/background");
+
+        _seDic[ESE.button] = Resources.Load<AudioClip>("Audio/button");
+        _seDic[ESE.jump] = Resources.Load<AudioClip>("Audio/jump2");
+        _seDic[ESE.item] = Resources.Load<AudioClip>("Audio/item");
+        _seDic[ESE.reward] = Resources.Load<AudioClip>("Audio/rewarded");
+        _seDic[ESE.failed] = Resources.Load<AudioClip>("Audio/failed");
     }
 
 
     public void PlaySE(ESE se)
     {
+        if (!_seDic.ContainsKey(se))
+        {
+            Debug.Log("없는 BGM 입니다.");
+            return;
+        }
+
         _seAudio.PlayOneShot(_seDic[se]);
     }
 
