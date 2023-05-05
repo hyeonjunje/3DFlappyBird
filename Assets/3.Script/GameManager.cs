@@ -14,12 +14,15 @@ public class GameManager : Singleton<GameManager>
     public SoundManager Sound => _sound;
     public SceneManagerEx Scene => _scene;
 
+
+    // 나중에 Init으로 해야함
     private void Awake()
     {
         Debug.Log("불러옵니다.");
         File.LoadGame();
 
         Scene.Init();
+        Sound.Init();
 
         RabbitController.Instance.onDie += GameOver;
     }
