@@ -24,7 +24,7 @@ public class GameManager : Singleton<GameManager>
         Scene.Init();
         Sound.Init();
 
-        RabbitController.Instance.onDie += GameOver;
+        //RabbitController.Instance.onDie += GameOver;
     }
 
     private void GameOver()

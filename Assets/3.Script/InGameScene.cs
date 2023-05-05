@@ -10,7 +10,7 @@ public class InGameScene : MonoBehaviour
     private void Awake()
     {
         // 캐릭터 트랜스폼 조정
-        RabbitController.Instance.transform.rotation = Quaternion.identity;
+        //RabbitController.Instance.transform.rotation = Quaternion.identity;
 
         // 3초 세는거
 

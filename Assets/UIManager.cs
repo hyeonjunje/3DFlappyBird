@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject rabbit;
     public GameObject nickNameUI;
     public GameObject warningUI;
     public InputField inputField;
@@ -21,26 +22,27 @@ public class UIManager : MonoBehaviour
 
     public void RightBtn()
     {
-        if (index >= RabbitController.Instance.mat.Length-1)
+        if (index >= SelectRabbit.Instance.mat.Length-1)
         {
             index = 0;
         }
         else index++;
-        RabbitController.Instance.rend.material = RabbitController.Instance.mat[index];
+        rabbit.GetComponent<RabbitColor>().rend.material = SelectRabbit.Instance.mat[index];
     }
 
     public void LeftBtn()
     {
         if(index<=0)
         {
-            index = RabbitController.Instance.mat.Length-1;
+            index = SelectRabbit.Instance.mat.Length-1;
         }
         else index--;
-        RabbitController.Instance.rend.material = RabbitController.Instance.mat[index];
+        rabbit.GetComponent<RabbitColor>().rend.material = SelectRabbit.Instance.mat[index];
     }
 
     public void MiddleBtn()
     {
+        SelectRabbit.Instance.rabbitColor = index;
         nickNameUI.SetActive(true);
     }
 
@@ -60,8 +62,8 @@ public class UIManager : MonoBehaviour
             return;
         }
         warningUI.SetActive(false);
-        RabbitController.Instance.nickName = inputField.text;
-        Debug.Log(RabbitController.Instance.nickName);
+        SelectRabbit.Instance.nickName = inputField.text;
+        Debug.Log(SelectRabbit.Instance.nickName);
         //¾À³Ñ±â±â
         GameManager.Instance.Scene.LoadScene(EScene.InGame);
     }
