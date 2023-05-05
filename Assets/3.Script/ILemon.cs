@@ -2,27 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ILemon : MonoBehaviour
+public class ILemon : MonoBehaviour,IItem
 {
+    [SerializeField] protected EItem item;
     public enum ItemType { Lemon, DragonFruit}
     public ItemType type;
-
     SphereCollider sphere;
 
     public bool isRoot = false;
 
-    private void OnEnable()
+    private RabbitController rabbit;
+    private void Awake()
     {
-        isRoot = false;
+        rabbit = RabbitController.Instance.GetComponent<RabbitController>();
     }
-    private void OnTriggerEnter(Collider other)
+
+    public void Use()
+    {
+        rabbit.UseItem(item);
+        //아이템 변환
+    }
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Pipe") && type.Equals(ItemType.Lemon) && isRoot)
         {
             ObjectChange box = other.GetComponent<ObjectChange>();
-            box.isChange = true;
-            box.ChangeObj();
-            //gameObject.SetActive(false);
+
+            if(box != null)
+            {
+                box.isChange = true;
+                box.ChangeObj();
+
+            }
         }
 
         //용과로 접촉 시
