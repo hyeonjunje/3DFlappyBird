@@ -110,17 +110,16 @@ public class RabbitController : Singleton<RabbitController>
         {
             IItem item = other.GetComponent<IItem>();
             EItem eItem = other.GetComponent<EItem>();
+
             if (item != null)
             {
+                if(eItem == EItem.Lemon)
+                {
+                    lemonItemScript = other.GetComponent<ILemon>();
+                }
                 item.Use();
-                Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
             }
-            if(item != null && eItem == EItem.Lemon)
-            {
-                lemonItemScript = other.GetComponent<ILemon>();
-            }
-            
-            
         }
     }
 
@@ -134,9 +133,7 @@ public class RabbitController : Singleton<RabbitController>
             case EItem.Lemon:
                 StartCoroutine(changeItemCo());
                 break;
-
         }
-
     }
     public IEnumerator changeItemCo()
     {
