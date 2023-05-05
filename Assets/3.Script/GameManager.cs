@@ -14,6 +14,9 @@ public class GameManager : Singleton<GameManager>
     public SoundManager Sound => _sound;
     public SceneManagerEx Scene => _scene;
 
+    private int score;
+    public int Score => score;
+
 
     // 나중에 Init으로 해야함
     private void Awake()
@@ -24,10 +27,15 @@ public class GameManager : Singleton<GameManager>
         Scene.Init();
         Sound.Init();
 
-        //RabbitController.Instance.onDie += GameOver;
+        Scene.onChangeScene += (() => score = 0);
     }
 
-    private void GameOver()
+    public void AddScore(int value)
+    {
+        score += value;
+    }
+
+    public void GameOver()
     {
         GameObject gameOverCanvas = GameObject.Find("GameOverCanvas");
         gameOverCanvas.transform.GetChild(0).gameObject.SetActive(true);

@@ -13,6 +13,10 @@ public class SceneManagerEx
 {
     public EScene currentScene = EScene.Lobby;
 
+
+    public delegate void OnChangeScene();
+    public event OnChangeScene onChangeScene;
+
     public void Init()
     {
         currentScene = EScene.Lobby;
@@ -22,5 +26,7 @@ public class SceneManagerEx
     {
         SceneManager.LoadScene((int)scene);
         currentScene = scene;
+
+        onChangeScene?.Invoke();
     }
 }

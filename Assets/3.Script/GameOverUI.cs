@@ -19,13 +19,13 @@ public class GameOverUI : MonoBehaviour
         //Debug.Log(RabbitController.Instance.nickName);
 
         // 데이터 가져오기
-        //string nickName = RabbitController.Instance.nickName;
+        string nickName = SelectRabbit.Instance.nickName;
         int score = Random.Range(0, 31);
-        //ScoreData scoreData = new ScoreData(nickName, score);
+        ScoreData scoreData = new ScoreData(nickName, score);
 
         // score 기록
-        //GameManager.Instance.File.RecordData(scoreData);
-        //rankingUI.InitData(scoreData);
+        GameManager.Instance.File.RecordData(scoreData);
+        rankingUI.InitData(scoreData);
 
         // UI 갱신
         scorePointText.text = score.ToString();

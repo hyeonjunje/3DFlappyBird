@@ -84,6 +84,8 @@ public class RabbitController : MonoBehaviour
 
         // 죽는 이벤트 실행
         onDie?.Invoke();
+
+        GameManager.Instance.GameOver();
     }
 
 
