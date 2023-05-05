@@ -5,7 +5,7 @@ using UnityEngine;
 public class Carrot : Item, IItem
 {
     private RabbitController rabbit;
-   
+
 
     private void Awake()
     {

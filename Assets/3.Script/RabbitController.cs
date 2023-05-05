@@ -23,6 +23,7 @@ public class RabbitController : Singleton<RabbitController>
 
     public string nickName;
 
+    public ILemon lemonItemScript;
     private void Awake()
     {
         isDead = false;
@@ -108,11 +109,18 @@ public class RabbitController : Singleton<RabbitController>
         if (other.CompareTag("Item") && !isDead)
         {
             IItem item = other.GetComponent<IItem>();
+            EItem eItem = other.GetComponent<EItem>();
             if (item != null)
             {
                 item.Use();
                 Destroy(other.gameObject);
             }
+            if(item != null && eItem == EItem.Lemon)
+            {
+                lemonItemScript = other.GetComponent<ILemon>();
+            }
+            
+            
         }
     }
 
@@ -124,10 +132,21 @@ public class RabbitController : Singleton<RabbitController>
                 StartCoroutine(sizeUpItemCo());
                 break;
             case EItem.Lemon:
+                StartCoroutine(changeItemCo());
                 break;
 
         }
 
+    }
+    public IEnumerator changeItemCo()
+    {
+        if(lemonItemScript != null)
+        {
+            lemonItemScript.isRoot = true;
+            yield return new WaitForSeconds(0.1f);
+            lemonItemScript.isRoot = false;
+            lemonItemScript.gameObject.SetActive(false);
+        }
     }
 
     public IEnumerator sizeUpItemCo()
