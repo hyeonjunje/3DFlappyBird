@@ -13,6 +13,7 @@ public class ObjectFile {
 
 public class ObjectChange : MonoBehaviour
 {
+    public int _levelIdx;
     public ObjectFile objectClass;
     // Start is called before the first frame update
     public bool isChange;
