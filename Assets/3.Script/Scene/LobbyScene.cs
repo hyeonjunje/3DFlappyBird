@@ -14,7 +14,6 @@ public class LobbyScene : BaseScene
     {
         base.Init();
 
-        GameManager.Instance.Sound.PlayBgm(EBGM.Background);
         GameManager.Instance.UI.ShowUI(SelectRabbitUI);
     }
 }

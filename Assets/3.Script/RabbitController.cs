@@ -84,8 +84,6 @@ public class RabbitController : MonoBehaviour
 
         // 죽는 이벤트 실행
         onDie?.Invoke();
-
-        GameManager.Instance.GameOver();
     }
 
 
@@ -141,7 +139,6 @@ public class RabbitController : MonoBehaviour
                 {
                     other.gameObject.SetActive(false);
                 }
-           
             }
         }
     }
@@ -153,9 +150,9 @@ public class RabbitController : MonoBehaviour
             case EItem.Carrot:
                 StartCoroutine(sizeUpItemCo());
                 break;
-        
         }
     }
+
     public IEnumerator sizeUpItemCo()
     {
         //커지고 파이프 뿌시고 일정시간 이후에 돌아오기

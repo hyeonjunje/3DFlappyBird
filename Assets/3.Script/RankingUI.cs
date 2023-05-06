@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RankingUI : MonoBehaviour
+public class RankingUI : BaseUI
 {
     [SerializeField] private Transform scoreUnitParent;
     [SerializeField]private ScoreUnit scoreUnitPrefab;
@@ -17,15 +17,22 @@ public class RankingUI : MonoBehaviour
     /// 랭킹 보여주기 (1등부터 10등까지)
     /// 그리고 내 점수 보여주기
     /// </summary>
-    private void OnEnable()
+    public override void Show()
     {
-        if(isFirst)
+        gameObject.SetActive(true);
+
+        if (isFirst)
         {
             isFirst = false;
 
             ShowRanking();
             ShowMyRanking();
         }
+    }
+
+    public override void Exit()
+    {
+        gameObject.SetActive(false);
     }
 
     public void InitData(ScoreData scoreData)

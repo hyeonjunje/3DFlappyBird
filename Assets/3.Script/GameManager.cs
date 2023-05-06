@@ -48,12 +48,6 @@ public class GameManager : Singleton<GameManager>
         OnChangeScore?.Invoke();
     }
 
-    public void GameOver()
-    {
-        GameObject gameOverCanvas = GameObject.Find("GameOverCanvas");
-        gameOverCanvas.transform.GetChild(0).gameObject.SetActive(true);
-    }
-
     private void OnApplicationQuit()
     {
         Debug.Log("저장합니다.");

@@ -3,30 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InGameScene : MonoBehaviour
+public class InGameScene : BaseScene
 {
     [SerializeField]
-    private Text gameScoreText;
+    private RabbitSpawner rabbitSpawner;
+    [SerializeField]
+    private BaseUI waitingUI;
+    [SerializeField]
+    private BaseUI gameOverUI;
 
-    private void Awake()
-    {
-        // 캐릭터 트랜스폼 조정
-        //RabbitController.Instance.transform.rotation = Quaternion.identity;
-
-        // 3초 세는거
-
-        // 제현준이; 만든 프리팹도 여기서 생성
-        // Instantiate(gameOverCanvas);
-        // ()
-
-        GameManager.Instance.OnChangeScore = null;
-        GameManager.Instance.OnChangeScore += (() => gameScoreText.text = GameManager.Instance.Score.ToString());
-    }
-
+    private RabbitController rabbit;
 
 
     public void ReStart()
     {
         GameManager.Instance.Scene.LoadScene(EScene.Lobby);
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+
+
+        // 플레이어 생성
+        rabbit = rabbitSpawner.RespawnRabbit();
+
+        // 플레이어 죽을 때 gameOverUI 활성화 해주기
+        rabbit.onDie += (() => GameManager.Instance.UI.ShowUI(gameOverUI));
+
+        // 카운트다운 UI Show
+        GameManager.Instance.UI.ShowUI(waitingUI);
     }
 }

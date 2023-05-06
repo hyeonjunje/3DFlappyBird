@@ -13,4 +13,14 @@ public class BaseScene : MonoBehaviour
     {
         GameManager.Instance.Init();
     }
+
+    public void ShowUI(BaseUI ui)
+    {
+        GameManager.Instance.UI.ShowUI(ui);
+    }
+
+    public void PopUI()
+    {
+        GameManager.Instance.UI.ExitUI();
+    }
 }
