@@ -16,10 +16,6 @@ public class FileManager
     public void RecordData(ScoreData scoreData)
     {
         gameData.AddScoreData(scoreData);
-        if(gameData.maxScore < scoreData.playerScore)
-        {
-            gameData.maxScore = scoreData.playerScore;
-        }
     }
 
     public void SaveGame()

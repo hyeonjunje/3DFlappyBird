@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Object_Movement : MonoBehaviour
 {
@@ -75,28 +76,32 @@ public class Object_Movement : MonoBehaviour
     }
     private void OnEnable()
     {
+        List<int> randomIndex = new List<int>();
+        for (int i = 0; i < objectDownBoxArray.Length; i++)
+            randomIndex.Add(i);
+
+        // ¹«ÀÛÀ§ ¼¯±â
+        randomIndex = randomIndex.GetShuffleList();
 
         for (int i = 0; i < spawnItemPrefabs.Length; i++)
         {
             spawnItemPrefabs[i].transform.position = objectPoolVector.position;
         }
+
         for (int i = 0; i < objectUpBoxPosArray.Length; i++)
         {
-            valueRandNum = Random.Range(0, objectUpBoxArray.Length);
+            int valueRandNum = randomIndex[i];
 
-            if (!objectUpBoxArray[valueRandNum].activeSelf)
-            {
-                objectUpBoxArray[valueRandNum].SetActive(true);
-                objectUpBoxArray[valueRandNum].transform.position = objectUpBoxPosArray[i].position;
-            }
-            else
-            {
-                i--;
-                continue;
-            }
+            Debug.Log(valueRandNum + "  " + (objectUpBoxArray.Length - 1 - valueRandNum));
+
+            objectUpBoxArray[valueRandNum].SetActive(true);
+            objectUpBoxArray[valueRandNum].transform.position = objectUpBoxPosArray[i].position;
+
+            objectDownBoxArray[objectUpBoxArray.Length - 1 - valueRandNum].SetActive(true);
+            objectDownBoxArray[objectUpBoxArray.Length - 1 - valueRandNum].transform.position = objectDownBoxPosArray[i].position;
         }
 
-        for (int i = 0; i < objectDownBoxPosArray.Length; i++)
+/*        for (int i = 0; i < objectDownBoxPosArray.Length; i++)
         {
             valueRandNum = Random.Range(0, objectDownBoxArray.Length);
             if (!objectDownBoxArray[valueRandNum].activeSelf)
@@ -111,7 +116,7 @@ public class Object_Movement : MonoBehaviour
                 i--;
                 continue;
             }
-        }
+        }*/
         RandSpawnItem();
 
     }

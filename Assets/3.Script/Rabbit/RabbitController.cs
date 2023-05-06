@@ -96,14 +96,17 @@ public class RabbitController : MonoBehaviour
                 //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
                 Die();
             }
-          
         }
+
         if (collision.transform.CompareTag("Pipe"))
         {
             if (isBig)
             {
                 //아이템 먹으면 파이프 뿌시기
                 collision.collider.gameObject.SetActive(false);
+
+                // 파이프 뿌수면 점수 오름!!
+                GameManager.Instance.AddScore(1);
             }
        
         }
