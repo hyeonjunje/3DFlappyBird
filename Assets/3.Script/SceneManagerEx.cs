@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public enum EScene
 {
-    Lobby = 0,
+    Menu = 0,
+    Lobby,
     InGame
 }
 
