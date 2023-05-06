@@ -183,7 +183,7 @@ public class Object_Movement : MonoBehaviour
                 //스폰될 위치와 스폰될 아이템이 전부 활성화 된 상태라면 위치를 변경
                 if (itemRandSpawnPos[i].gameObject.activeSelf && spawnItemPrefabs[j].activeSelf)
                 {
-                    itemRandSpawnPos[i].position = new Vector3(randPosX, transform.position.y, 0);
+                    itemRandSpawnPos[i].position = new Vector3(randPosX, itemRandSpawnPos[i].transform.position.y, 0);
                     spawnItemPrefabs[j].transform.position = itemRandSpawnPos[i].position;
                 }
             }
