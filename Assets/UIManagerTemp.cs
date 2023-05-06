@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIManagerTemp : MonoBehaviour
 {
     public GameObject rabbit;
     public GameObject nickNameUI;

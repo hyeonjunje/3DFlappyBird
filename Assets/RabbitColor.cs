@@ -8,8 +8,6 @@ public class RabbitColor : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.Sound.PlayBgm(EBGM.Background);
-
         rend = GetComponentInChildren<SkinnedMeshRenderer>();
     }
 

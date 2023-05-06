@@ -9,19 +9,27 @@ public class GameManager : Singleton<GameManager>
     private FileManager _file = new FileManager();
     private SoundManager _sound = new SoundManager();
     private SceneManagerEx _scene = new SceneManagerEx();
+    private UIManager _ui = new UIManager();
+
 
     public FileManager File => _file;
     public SoundManager Sound => _sound;
     public SceneManagerEx Scene => _scene;
+    public UIManager UI => _ui;
 
     private int score;
     public int Score => score;
 
     public System.Action OnChangeScore;
 
+    private bool isInit = false;
+
     // 나중에 Init으로 해야함
-    private void Awake()
+    public void Init()
     {
+        if (isInit)
+            return;
+
         Debug.Log("불러옵니다.");
         File.LoadGame();
 
@@ -29,6 +37,8 @@ public class GameManager : Singleton<GameManager>
         Sound.Init();
 
         Scene.onChangeScene += (() => score = 0);
+
+        isInit = true;
     }
 
     public void AddScore(int value)
