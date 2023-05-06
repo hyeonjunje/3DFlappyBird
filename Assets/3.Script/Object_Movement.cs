@@ -144,9 +144,6 @@ public class Object_Movement : MonoBehaviour
                 ObjectChange objScript = objectDownBoxArray[i].GetComponent<ObjectChange>();
                 randPosX = objectDownBoxArray[i].transform.position.x;
                 randLevel = objScript._levelIdx;
-                Debug.Log(randPosX);
-                Debug.Log(randLevel);
-                Debug.Log(gameObject.name);
                 break;
             }
         }

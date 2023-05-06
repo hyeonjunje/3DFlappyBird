@@ -22,14 +22,17 @@ public class ObjectChange : MonoBehaviour
 
     [SerializeField] private GameObject scoreZone = null;
 
+    BoxCollider box;
     private void Awake()
     {  
         objectClass = new ObjectFile(objectBoxPrefabs, objectItemPrefabs);
+        TryGetComponent(out box);
     }
 
     void OnEnable()
     {
         isChange = false;
+        box.enabled = true;
         ChangeObj();
 
         // 점수 콜라이더 활성화
@@ -39,10 +42,24 @@ public class ObjectChange : MonoBehaviour
 
     public void ChangeObj()
     {
-        for (int i = 0; i < objectClass.objectBoxPrefab.Length; i++)
+        if (!isChange)
         {
-            objectClass.objectBoxPrefab[i].SetActive(!isChange);
-            objectClass.objectItemPrefab[i].SetActive(isChange);
+            for (int i = 0; i < objectClass.objectBoxPrefab.Length; i++)
+            {
+                box.enabled = true;
+                objectClass.objectBoxPrefab[i].SetActive(true);
+                objectClass.objectItemPrefab[i].SetActive(false);
+
+            }
+        }
+        else
+        {
+            for (int i = 0; i < objectClass.objectItemPrefab.Length; i++)
+            {
+                box.enabled = false;
+                objectClass.objectBoxPrefab[i].SetActive(false);
+                objectClass.objectItemPrefab[i].SetActive(true);
+            }
         }
 
         // 오브젝트 변화시 점수 콜라이더는 필요없어짐

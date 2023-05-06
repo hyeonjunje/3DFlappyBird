@@ -91,18 +91,23 @@ public class RabbitController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.CompareTag("Pipe"))
+        if (collision.transform.CompareTag("Floor") || collision.transform.CompareTag("Pipe"))
+        {
+            if (!isBig)
+            {
+                //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
+                Die();
+            }
+          
+        }
+        if (collision.transform.CompareTag("Pipe"))
         {
             if (isBig)
             {
                 //아이템 먹으면 파이프 뿌시기
                 collision.collider.gameObject.SetActive(false);
             }
-            else
-            {
-                //죽고 점프 못뛰고 화면 멈추고 게임오버 나오고 점수 나오고,,,,,,,,,,,,,,,
-                Die();
-            }
+       
         }
     }
 
@@ -120,18 +125,24 @@ public class RabbitController : MonoBehaviour
 
         if (other.CompareTag("Item") && !isDead)
         {
-/*            IItem item = other.GetComponent<IItem>();
-            EItem eItem = other.GetComponent<EItem>();
+             this.item = other.GetComponent<Item>();
+             IItem item = other.GetComponent<IItem>();
 
-            if (item != null)
+            if (this.item == null)
             {
-                if(eItem == EItem.Lemon)
-                {
-                    lemonItemScript = other.GetComponent<ILemon>();
-                }
+                lemonItemScript = other.GetComponent<ILemon>();
+                lemonItemScript.StartCoroutine(lemonItemScript.changeItemCo());
+            }
+            if (item != null && !isBig )
+            {
                 item.Use();
-                other.gameObject.SetActive(false);
-            }*/
+
+                if(this.item != null)
+                {
+                    other.gameObject.SetActive(false);
+                }
+           
+            }
         }
     }
 
@@ -142,22 +153,9 @@ public class RabbitController : MonoBehaviour
             case EItem.Carrot:
                 StartCoroutine(sizeUpItemCo());
                 break;
-            case EItem.Lemon:
-                StartCoroutine(changeItemCo());
-                break;
+        
         }
     }
-    public IEnumerator changeItemCo()
-    {
-        if(lemonItemScript != null)
-        {
-            lemonItemScript.isRoot = true;
-            yield return new WaitForSeconds(0.1f);
-            lemonItemScript.isRoot = false;
-            lemonItemScript.gameObject.SetActive(false);
-        }
-    }
-
     public IEnumerator sizeUpItemCo()
     {
         //커지고 파이프 뿌시고 일정시간 이후에 돌아오기

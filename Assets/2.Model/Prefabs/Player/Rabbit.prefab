@@ -556,6 +556,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2a5fd24aa4a80634789891ff64feb45e, type: 2}
   isDead: 0
   isBig: 0
+  item: {fileID: 0}
+  nickName: 
+  lemonItemScript: {fileID: 0}
 --- !u!1 &7522829745240596431
 GameObject:
   m_ObjectHideFlags: 0

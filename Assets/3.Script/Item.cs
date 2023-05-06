@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum EItem { Carrot, Lemon };
+public enum EItem { Carrot, Lemon, DragonFruit };
 public class Item : MonoBehaviour
 {
-    [SerializeField] protected EItem item;
+    public EItem item;
 
     private void Update()
     {
