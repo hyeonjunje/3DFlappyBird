@@ -8,5 +8,4 @@ public class SelectRabbit : Singleton<SelectRabbit>
     public string nickName;
     public int rabbitColor;
 
-
 }

@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Lemon
   - Carrot
+  - Floor
   layers:
   - Default
   - TransparentFX

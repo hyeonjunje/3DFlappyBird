@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4677828505401325613}
   - component: {fileID: 4677828505401325612}
   - component: {fileID: 4677828505401325615}
-  - component: {fileID: 4677828505401325614}
   - component: {fileID: 4677828505401325601}
   m_Layer: 0
   m_Name: MeshObject
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4677828505401325614
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4677828505401325600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.16
-  m_Height: 0.3796094
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.060195297, z: 0}
 --- !u!114 &4677828505401325601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +108,7 @@ GameObject:
   - component: {fileID: 5278185226984816136}
   - component: {fileID: 5278185226984816246}
   - component: {fileID: 5278185226984816137}
+  - component: {fileID: 8033864586684430988}
   m_Layer: 0
   m_Name: Item Lemon
   m_TagString: Item
@@ -138,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5278185226984816139}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 117, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 4677828505401325613}
@@ -203,9 +189,9 @@ SphereCollider:
   m_GameObject: {fileID: 5278185226984816139}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 5
   m_Center: {x: 0, y: 0.098253354, z: 0}
 --- !u!54 &5278185226984816246
 Rigidbody:
@@ -237,4 +223,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: 1
   type: 0
+  sphere: {fileID: 5278185226984816136}
   isRoot: 0
+--- !u!136 &8033864586684430988
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278185226984816139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.03
+  m_Height: 0.0783658
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.0401937, z: 0}

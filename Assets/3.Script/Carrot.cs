@@ -7,14 +7,14 @@ public class Carrot : Item, IItem
     private RabbitController rabbit;
 
 
-    private void Awake()
-    {
-        rabbit = GetComponent<RabbitController>();
-    }
-
     public void Use()
     {
-        rabbit.UseItem(item);
+        rabbit = GameObject.FindGameObjectWithTag("Player").GetComponent<RabbitController>();
+
+        if (rabbit != null)
+        {
+            rabbit.UseItem(item);
+        }
         //Ä¿Áö±â
     }
 
