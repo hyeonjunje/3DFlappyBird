@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class ScoreData : IComparable, IEquatable
+public class ScoreData : IComparable
 {
     public string playerName;
     public int playerScore;
