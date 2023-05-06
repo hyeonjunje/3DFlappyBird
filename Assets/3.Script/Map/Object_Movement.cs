@@ -133,9 +133,7 @@ public class Object_Movement : MonoBehaviour
         //index 랜덤뽑기
         randSpawnItem = Random.Range(0, 2);
 
-
         //살아있는 box중 랜덤한 위치와 레벨을 가져오기 (5분의 1의 확률)
-
         for (int i = 0; i < objectDownBoxArray.Length; i++)
         {
             int randnum = Random.Range(0, 10);
