@@ -32,8 +32,6 @@ public class RabbitController : MonoBehaviour
         rend = GetComponentInChildren<SkinnedMeshRenderer>();
         TryGetComponent(out rigid);
         TryGetComponent(out ani);
-        
-        
     }
 
 
@@ -69,6 +67,8 @@ public class RabbitController : MonoBehaviour
             rigid.velocity = Vector3.zero;
             rigid.AddForce(Vector3.up*jumpForce);
             ani.SetTrigger("Jump");
+
+            GameManager.Instance.Sound.PlaySE(ESE.jump);
         }
 
     }
@@ -108,6 +108,16 @@ public class RabbitController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // 스코어 layer에 감지되고 죽지 않은 상태일 때
+        if(other.gameObject.layer.Equals(LayerMask.NameToLayer("Score")) && !isDead)
+        {
+            // 점수 올라감!!
+            GameManager.Instance.AddScore(1);
+            
+            // 점수 올라가는 소리 => 나중에 소리 바꿔
+            GameManager.Instance.Sound.PlaySE(ESE.item);
+        }
+
         if (other.CompareTag("Item") && !isDead)
         {
 /*            IItem item = other.GetComponent<IItem>();

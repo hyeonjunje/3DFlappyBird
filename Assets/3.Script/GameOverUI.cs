@@ -20,7 +20,7 @@ public class GameOverUI : MonoBehaviour
 
         // 데이터 가져오기
         string nickName = SelectRabbit.Instance.nickName;
-        int score = Random.Range(0, 31);
+        int score = GameManager.Instance.Score;
         ScoreData scoreData = new ScoreData(nickName, score);
 
         // score 기록
