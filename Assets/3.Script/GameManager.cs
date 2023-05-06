@@ -35,6 +35,7 @@ public class GameManager : Singleton<GameManager>
 
         Scene.Init();
         Sound.Init();
+        UI.Init();
 
         Scene.onChangeScene += (() => score = 0);
 
