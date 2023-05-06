@@ -61,6 +61,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c0a552f1b11541ba726fdc90e98c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIdx: 1
+  objectClass:
+    objectBoxPrefab: []
+    objectItemPrefab: []
   isChange: 0
   objectBoxPrefabs:
   - {fileID: 4953015367784314828}
