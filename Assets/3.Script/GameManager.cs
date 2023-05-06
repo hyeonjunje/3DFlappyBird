@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
     private int score;
     public int Score => score;
 
+    public System.Action OnChangeScore;
 
     // 나중에 Init으로 해야함
     private void Awake()
@@ -33,6 +34,7 @@ public class GameManager : Singleton<GameManager>
     public void AddScore(int value)
     {
         score += value;
+        OnChangeScore?.Invoke();
     }
 
     public void GameOver()

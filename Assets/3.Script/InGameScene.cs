@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InGameScene : MonoBehaviour
 {
     [SerializeField]
-    private GameObject gameOverCanvas;
+    private Text gameScoreText;
 
     private void Awake()
     {
@@ -16,8 +17,12 @@ public class InGameScene : MonoBehaviour
 
         // 제현준이; 만든 프리팹도 여기서 생성
         // Instantiate(gameOverCanvas);
-        // 
+        // ()
+
+        GameManager.Instance.OnChangeScore = null;
+        GameManager.Instance.OnChangeScore += (() => gameScoreText.text = GameManager.Instance.Score.ToString());
     }
+
 
 
     public void ReStart()
