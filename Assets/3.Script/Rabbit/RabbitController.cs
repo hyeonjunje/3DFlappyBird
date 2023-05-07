@@ -45,11 +45,14 @@ public class RabbitController : MonoBehaviour
             Die();
         }
 
+#if UNITY_EDITOR
         if (Input.GetMouseButtonDown(0))
         {
             Jump();
         }
+#endif
 
+#if UNITY_ANDROID
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -57,6 +60,7 @@ public class RabbitController : MonoBehaviour
                 Jump();
             }
         }
+#endif
 
     }
 

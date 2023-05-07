@@ -48,5 +48,7 @@ public class GameOverUI : BaseUI
             }
             bestScorePointText.text = GameManager.Instance.File.GameData.maxScore.ToString();
         }
+
+        GameManager.Instance.File.SaveGame();
     }
 }
