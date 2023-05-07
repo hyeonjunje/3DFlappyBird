@@ -16,6 +16,11 @@ public class RabbitColor : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        Invoke("SetTrigger", 1);
+    }
+
+    void SetTrigger()
+    {
         ani.SetTrigger("IdleC");
     }
 

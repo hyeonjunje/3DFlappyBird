@@ -34,13 +34,12 @@ public class RabbitController : MonoBehaviour
         TryGetComponent(out ani);
     }
 
-
     private void Update()
     {
       
         view = Camera.main.WorldToViewportPoint(transform.position);
         //화면 밖으로 나가면 죽음?
-        if(view.y>1||view.y<0&&!isBig && GameManager.Instance.Scene.currentScene == EScene.InGame)
+        if(view.y>1.2||view.y<0&&!isBig && GameManager.Instance.Scene.currentScene == EScene.InGame)
         {
             Die();
         }
@@ -70,7 +69,8 @@ public class RabbitController : MonoBehaviour
         {
             rigid.velocity = Vector3.zero;
             rigid.AddForce(Vector3.up*jumpForce);
-            ani.SetTrigger("Jump");
+            if(!isBig)
+                ani.SetTrigger("Jump");
 
             GameManager.Instance.Sound.PlaySE(ESE.jump);
         }

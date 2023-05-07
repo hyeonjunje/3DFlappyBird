@@ -8,7 +8,7 @@ public class RabbitSelectUI : BaseUI
 {
     public GameObject rabbit;
     public GameObject nickNameUI;
-    public GameObject warningUI;
+    public Text warningText;
     public InputField inputField;
 
     private int index = 0;
@@ -32,6 +32,7 @@ public class RabbitSelectUI : BaseUI
     private void Awake()
     {
         Show();
+        inputField.characterLimit = 10;
     }
 
     public override void Exit()
@@ -43,7 +44,7 @@ public class RabbitSelectUI : BaseUI
     {
         gameObject.SetActive(true);
 
-        warningUI.SetActive(false);
+        warningText.gameObject.SetActive(false);
         nickNameUI.SetActive(false);
     }
 
@@ -75,14 +76,35 @@ public class RabbitSelectUI : BaseUI
     {
         if (CheckNickName() == false)
         {
-            warningUI.SetActive(true);
-            Debug.Log("다시지어");
+            warningText.gameObject.SetActive(true);
+            StartCoroutine(ShakeCo());
+            warningText.text = "잘못된 닉네임 입니다.";
             return;
         }
-        warningUI.SetActive(false);
+
+        if(inputField.text.Length<2)
+        {
+            warningText.gameObject.SetActive(true);
+            StartCoroutine(ShakeCo());
+            warningText.text = "최소 두 글자의 닉네임을 입력해주세요.";
+            return;
+        }
+        warningText.gameObject.SetActive(false);
         SelectRabbit.Instance.nickName = inputField.text;
         Debug.Log(SelectRabbit.Instance.nickName);
         //씬넘기기
         GameManager.Instance.Scene.LoadScene(EScene.InGame);
+    }
+
+    private IEnumerator ShakeCo()
+    {
+        Vector3 origin = warningText.transform.position;
+
+        for (int i = 0; i < 5; i++)
+        {
+            warningText.transform.position += new Vector3(0, Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * 30f;
+            yield return new WaitForSeconds(0.02f);
+            warningText.transform.position = origin;
+        }
     }
 }
