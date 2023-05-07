@@ -44,10 +44,11 @@ public class GameOverUI : BaseUI
             // 신기록 갱신
             if (GameManager.Instance.File.GameData.maxScore < score)
             {
-                Debug.Log("신기록!");
                 GameManager.Instance.File.GameData.maxScore = score;
             }
             bestScorePointText.text = GameManager.Instance.File.GameData.maxScore.ToString();
         }
+
+        GameManager.Instance.File.SaveGame();
     }
 }

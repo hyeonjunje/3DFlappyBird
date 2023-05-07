@@ -11,6 +11,8 @@ public class InGameScene : BaseScene
     private BaseUI waitingUI;
     [SerializeField]
     private BaseUI gameOverUI;
+    [SerializeField]
+    private BaseUI inGameUI;
 
     private RabbitController rabbit;
 
@@ -29,9 +31,12 @@ public class InGameScene : BaseScene
         rabbit = rabbitSpawner.RespawnRabbit();
 
         // 플레이어 죽을 때 gameOverUI 활성화 해주기
-        rabbit.onDie += (() => GameManager.Instance.UI.ShowUI(gameOverUI));
+        // rabbit.onDie += (() => GameManager.Instance.UI.ShowUI(gameOverUI));
+        rabbit.onDie += (() => inGameUI.Exit());
+        rabbit.onDie += (() => gameOverUI.Show());
+        /*// 카운트다운 UI Show
+        GameManager.Instance.UI.ShowUI(waitingUI);*/
 
-        // 카운트다운 UI Show
-        GameManager.Instance.UI.ShowUI(waitingUI);
+        waitingUI.Show();
     }
 }

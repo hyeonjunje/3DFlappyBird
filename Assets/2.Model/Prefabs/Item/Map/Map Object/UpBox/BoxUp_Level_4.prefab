@@ -353,6 +353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c0a552f1b11541ba726fdc90e98c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIdx: 4
+  objectClass:
+    objectBoxPrefab: []
+    objectItemPrefab: []
   isChange: 0
   objectBoxPrefabs:
   - {fileID: 5592487437061792943}
@@ -364,6 +368,7 @@ MonoBehaviour:
   - {fileID: 8904507003688344994}
   - {fileID: 448586607256849002}
   - {fileID: 3898612382152925128}
+  scoreZone: {fileID: 0}
 --- !u!1 &5592487438479071116
 GameObject:
   m_ObjectHideFlags: 0

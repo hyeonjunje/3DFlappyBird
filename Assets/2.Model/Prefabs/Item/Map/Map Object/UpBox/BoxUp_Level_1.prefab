@@ -59,11 +59,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 020c0a552f1b11541ba726fdc90e98c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelIdx: 1
+  objectClass:
+    objectBoxPrefab: []
+    objectItemPrefab: []
   isChange: 0
   objectBoxPrefabs:
   - {fileID: 3483030892295966427}
   objectItemPrefabs:
   - {fileID: 1469335705118019759}
+  scoreZone: {fileID: 0}
 --- !u!1001 &230827490982949432
 PrefabInstance:
   m_ObjectHideFlags: 0
