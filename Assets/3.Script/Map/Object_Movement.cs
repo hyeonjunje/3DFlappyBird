@@ -92,8 +92,6 @@ public class Object_Movement : MonoBehaviour
         {
             int valueRandNum = randomIndex[i];
 
-            Debug.Log(valueRandNum + "  " + (objectUpBoxArray.Length - 1 - valueRandNum));
-
             objectUpBoxArray[valueRandNum].SetActive(true);
             objectUpBoxArray[valueRandNum].transform.position = objectUpBoxPosArray[i].position;
 

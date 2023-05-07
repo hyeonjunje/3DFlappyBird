@@ -29,6 +29,11 @@ public class RabbitSelectUI : BaseUI
         }
     }
 
+    private void Awake()
+    {
+        Show();
+    }
+
     public override void Exit()
     {
         gameObject.SetActive(false);

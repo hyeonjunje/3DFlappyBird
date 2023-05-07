@@ -10,6 +10,11 @@ public class WaitingUI : BaseUI
 
     private Coroutine countDownCo;
 
+    private void Awake()
+    {
+        Show();
+    }
+
     public override void Exit()
     {
         gameObject.SetActive(false);
@@ -39,6 +44,10 @@ public class WaitingUI : BaseUI
         Time.timeScale = 1.0f;
 
         // 카운트 다운 끝나면 inGameUI show해주기
-        GameManager.Instance.UI.ShowUI(inGameUI);
+
+        Exit();
+        inGameUI.Show();
+
+        // GameManager.Instance.UI.ShowUI(inGameUI);
     }
 }

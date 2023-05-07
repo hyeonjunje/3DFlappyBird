@@ -7,6 +7,7 @@ public class BaseScene : MonoBehaviour
     private void Awake()
     {
         Init();
+        Debug.Log(gameObject.name);
     }
 
     protected virtual void Init()
@@ -16,11 +17,17 @@ public class BaseScene : MonoBehaviour
 
     public void ShowUI(BaseUI ui)
     {
-        GameManager.Instance.UI.ShowUI(ui);
+        ui.Show();
+        // GameManager.Instance.UI.ShowUI(ui);
     }
 
     public void PopUI()
     {
         GameManager.Instance.UI.ExitUI();
+    }
+
+    public void ExitUI(BaseUI ui)
+    {
+        ui.Exit();
     }
 }
