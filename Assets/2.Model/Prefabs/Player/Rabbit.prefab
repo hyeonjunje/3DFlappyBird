@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0d3cc5f7254f64d8c892ba3d164b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 180
+  jumpForce: 215
   ani: {fileID: 0}
   defaultScale: {x: 0, y: 0, z: 0}
   rend: {fileID: 7604530058194939777}

@@ -1430,6 +1430,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048995400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3370943975290112167, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+  m_PrefabInstance: {fileID: 3370943973961801142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034005946598919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2208,10 @@ PrefabInstance:
       propertyPath: rabbit
       value: 
       objectReference: {fileID: 1692321998964121}
+    - target: {fileID: 3370943973901867488, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: warningText
+      value: 
+      objectReference: {fileID: 2048995400}
     - target: {fileID: 3370943973901867490, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
       propertyPath: m_Name
       value: RabbitSelectUI
@@ -2313,6 +2328,34 @@ PrefabInstance:
       propertyPath: m_FontData.m_FontStyle
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 2d040b1040b12644dbfd6de09f5b5408, type: 3}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943974236754528, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3370943975003105331, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
       propertyPath: m_Type
       value: 0
@@ -2353,10 +2396,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 115
       objectReference: {fileID: 0}
+    - target: {fileID: 3370943975128323042, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 900
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943975128323043, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_CharacterLimit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3370943975138127348, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 2d040b1040b12644dbfd6de09f5b5408, type: 3}
+    - target: {fileID: 3370943975138127348, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943975138127348, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 3370943975192644379, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
       propertyPath: m_Type
       value: 0
@@ -2404,6 +2463,10 @@ PrefabInstance:
     - target: {fileID: 3370943975290112167, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
       propertyPath: m_FontData.m_HorizontalOverflow
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370943975290112185, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ad0089fbdd4bbe48b8ac0e6ebd4bd4d, type: 3}
@@ -2475,3 +2538,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044d2d0ca8bc9ce49b017621dcdd8237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3370943973961801151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3370943973961801144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 5, y: -3}
+  m_UseGraphicAlpha: 1
